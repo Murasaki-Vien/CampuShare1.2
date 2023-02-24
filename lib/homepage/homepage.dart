@@ -6,93 +6,85 @@ import 'package:proj3/components/categbuttons.dart';
 import 'package:proj3/components/lend_borrow.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:proj3/homepage/calendar.dart';
-
-
+//side panel
+import 'package:proj3/sidebar/help.dart';
+import 'package:proj3/sidebar/data_privacy.dart';
+import 'package:proj3/sidebar/terms_and_condition.dart';
+import 'package:proj3/sidebar/contact_us.dart';
 
 class Myhomepage extends StatefulWidget {
-
-
   const Myhomepage({
     super.key,
   });
 
   @override
   State<Myhomepage> createState() => _MyhomepageState();
-
 }
 
 class _MyhomepageState extends State<Myhomepage> {
-
   final searchController = TextEditingController();
   String textName = '';
   bool btnClicked = false;
   bool lendisClicked = false;
   bool borrowisClicked = false;
 
-  
-
-
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset : false,
-      body : SafeArea(
-        child : SingleChildScrollView(
-          child : Column(
+      extendBody: true,
+      resizeToAvoidBottomInset: false,
+
+      appBar: AppBar(
+        title: const Text('Home'),
+        elevation: 0,
+        backgroundColor: Color(0xff6C63FF),
+      ),
+
+      drawer: Drawer(
+          child: SingleChildScrollView(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+            buildHeader(context),
+            buildMenuItems(context),
+          ]))),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
             children: [
               Stack(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(0),
                     child: AspectRatio(
-                      aspectRatio : 18/9,
+                      aspectRatio: 18 / 9,
                       child: SvgPicture.asset(
-                          'lib/svg/rectangle.svg',
-                        ),
+                        'lib/svg/rectangle.svg',
+                      ),
                     ),
                   ),
 
-                  Padding(
-                    padding : const EdgeInsets.fromLTRB(18, 10, 18, 0),
-                    child : Row(
-                      mainAxisAlignment : MainAxisAlignment.spaceBetween,
-                      children: [
-                        SvgPicture.asset('lib/svg/menutab.svg',
-                          height : 19.43,
-                          width : 17,
-                        ),
-                        SvgPicture.asset('lib/svg/bellicon.svg',
-                          height : 20.13,
-                          width : 23,
-                        ),
-                      ],
-                    ),
-                  ),
-                 
                   //header
                   Center(
                     child: Padding(
-                      padding : const EdgeInsets.fromLTRB(0, 52, 0, 46),
+                      padding: const EdgeInsets.fromLTRB(0, 52, 0, 46),
                       child: Column(
                         children: [
                           Text(
                             "Lend, borrow, repeat",
-                            style : GoogleFonts.poppins(
-                              fontSize : 20,
-                              color : Colors.white,
-                              fontWeight : FontWeight.bold, 
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          
-                        
-                          Text(
-                            'with ease!',
-                            style : GoogleFonts.poppins(
-                              fontSize : 20,
-                              color : Colors.black,
-                              fontWeight : FontWeight.bold, 
-                            )
-                          ),
+                          Text('with ease!',
+                              style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              )),
                         ],
                       ),
                     ),
@@ -100,62 +92,53 @@ class _MyhomepageState extends State<Myhomepage> {
 
                   //search bar
                   Center(
-                    child : Padding(
-                      padding : const EdgeInsets.fromLTRB(45, 148, 45, 0),
-                      
-                        child : MysearchBar(
-                          controller: searchController,
-                          hinttext : "Search for Everything",
-                          icon : const Icon(Icons.search,
-                            color : Color(0xffA5A3A3)
-                          )
-                        )
-                      
-                    ),
+                    child: Padding(
+                        padding: const EdgeInsets.fromLTRB(45, 148, 45, 0),
+                        child: MysearchBar(
+                            controller: searchController,
+                            hinttext: "Search for Everything",
+                            icon: const Icon(Icons.search,
+                                color: Color(0xffA5A3A3)))),
                   ),
-                ], 
+                ],
               ),
 
               //categories
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left : 26, top : 28),
+                    padding: const EdgeInsets.only(left: 26, top: 28),
                     child: Text(
                       "Categories",
-                      style : GoogleFonts.poppins(
-                        fontSize : 15
-                      ),
+                      style: GoogleFonts.poppins(fontSize: 15),
                     ),
                   ),
-                  
                 ],
               ),
 
-              //buttons under categories 
+              //buttons under categories
               Padding(
                 padding: const EdgeInsets.fromLTRB(28, 11, 28, 0),
                 child: Row(
-                  mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    
                     MyCategoryBtn(
-                      btnName: "Textbooks", 
+                      btnName: "Textbooks",
                       svgName: 'lib/svg/book-alert-outline.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
-                      btnName: "Electronics", 
+                      btnName: "Electronics",
                       svgName: 'lib/svg/electronics-logo.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
-                      btnName: "Sports", 
+                      btnName: "Sports",
                       svgName: 'lib/svg/sports-logo.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
-                      btnName: "Music", 
+                      btnName: "Music",
                       svgName: 'lib/svg/music-logo.svg',
                       btnClicked: btnClicked,
                     ),
@@ -163,84 +146,127 @@ class _MyhomepageState extends State<Myhomepage> {
                 ),
               ),
 
-
               //Lend Listings and Borrow Listings
-              const SizedBox(height : 20),
+              const SizedBox(height: 20),
               const Divider(
                 thickness: 1,
-                color : Colors.black,
+                color: Colors.black,
               ),
               Row(
-                mainAxisAlignment : MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  
                   GestureDetector(
-                    onTap : (){
+                    onTap: () {
                       setState(() {
-                        borrowisClicked = false; //remove the color of borrow req
-                        lendisClicked = !lendisClicked; //highlight the Lend list
+                        borrowisClicked =
+                            false; //remove the color of borrow req
+                        lendisClicked =
+                            !lendisClicked; //highlight the Lend list
                         textName = 'listings';
                       });
                       print("Test for Lend");
-                    }, 
-                    child : Mylendborrowoptn(
+                    },
+                    child: Mylendborrowoptn(
                       lBName: "Lend Listings",
-                      lendBorrowisClicked : lendisClicked,
+                      lendBorrowisClicked: lendisClicked,
                     ),
-                     
                   ),
-
                   GestureDetector(
-                    onTap : (){
+                    onTap: () {
                       setState(() {
                         lendisClicked = false; //remove color Lend List
-                        borrowisClicked = !borrowisClicked; //highlight the lend list 
+                        borrowisClicked =
+                            !borrowisClicked; //highlight the lend list
                         textName = 'requests';
                       });
                       print("Test for Borrow");
-                    }, 
-                    child : Mylendborrowoptn(
+                    },
+                    child: Mylendborrowoptn(
                       lBName: "Borrow Request",
-                      lendBorrowisClicked : borrowisClicked,
+                      lendBorrowisClicked: borrowisClicked,
                     ),
-                     
                   ),
-
-                  
                 ],
               ),
               const Divider(
                 thickness: 1,
-                color : Colors.black,
+                color: Colors.black,
               ),
 
-
-              const SizedBox(height : 38),
+              const SizedBox(height: 38),
               SvgPicture.asset('lib/svg/no_items-logo.svg'),
               Text(
                 "No $textName yet.",
-                style : GoogleFonts.poppins(
-                  fontSize : 15, 
+                style: GoogleFonts.poppins(
+                  fontSize: 15,
                 ),
               ),
-
-              
-              
-              
             ],
           ),
-          
         ),
       ),
 
-      
-      
       // for bottom Navigation
-      
-      
-
     );
   }
+
+  Widget buildHeader(BuildContext context) => Container(
+          padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top,
+      ));
 }
 
-//new page for calendar
+Widget buildMenuItems(BuildContext context) => Container(
+      padding: const EdgeInsets.all(24),
+      child: Wrap(
+        runSpacing: 5,
+        children: [
+          Column(children: [
+            ListTile(
+                leading: const Icon(Icons.help_center_rounded),
+                title: const Text('Help'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const HelpPage(),
+                  ));
+                }),
+            ListTile(
+                leading: const Icon(Icons.lock_open),
+                title: const Text('Data Privacy'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const DataPrivacyPage(),
+                  ));
+                }),
+            ListTile(
+                leading: const Icon(Icons.bookmark),
+                title: const Text('Terms and Conditions'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const TermsAndConditionPage(),
+                  ));
+                }),
+            ListTile(
+                leading: const Icon(Icons.phone_callback),
+                title: const Text('Contact Us'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ContactUsPage(),
+                  ));
+                }),
+            const Divider(color: Colors.black54),
+            const SizedBox(height: 265),
+            ListTile(
+                leading: const Icon(Icons.exit_to_app),
+                title: const Text('Sign out'),
+                onTap: () {
+                  //Add logic for sign out
+                }),
+          ]),
+        ],
+      ),
+    );
