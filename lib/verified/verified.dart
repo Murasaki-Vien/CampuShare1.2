@@ -67,8 +67,3 @@ class MyVerified extends StatelessWidget {
     );
   }
 }
-
-//Hi this is a comment  that I want to see the progress in github
-//Wala rani gamit 
-//FRFRFRFRFR
-//hahahhahaha

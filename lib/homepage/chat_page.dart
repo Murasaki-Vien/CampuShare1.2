@@ -47,6 +47,48 @@ class _MyChatPageState extends State<MyChatPage> {
                   ),
                 )
               ),
+
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 9, 0, 0),
+                child: Container(
+                  color : const Color(0xffFFFFFF),
+                  child : Row(
+                    children:  [
+                     
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(16, 20, 0, 20),
+                        child: Icon(
+                          Icons.person_2_outlined,
+                          size : 61.8,
+                        ),
+                      ),
+                      Container(
+                        child : Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(
+                              "Charles Henricks Dela Peña",
+                              style : GoogleFonts.poppins(
+                                fontWeight : FontWeight.w500,
+                                fontSize : 15
+                              )
+                            ),
+                            Text(
+                              "I would like to inquire an Arduino Uno",
+                              textAlign : TextAlign.start,
+                              style : GoogleFonts.poppins(
+                                fontWeight : FontWeight.normal,
+                                fontSize : 10
+                              )
+                            ),
+                        ],
+                      )
+                      )
+                    ],
+                  )
+                ),
+              ),
             ],
           ),
         ),
