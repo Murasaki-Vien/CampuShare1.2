@@ -35,7 +35,6 @@ class _MyhomepageState extends State<Myhomepage> {
       resizeToAvoidBottomInset: false,
 
       appBar: AppBar(
-        title: const Text('Home'),
         elevation: 0,
         backgroundColor: Color(0xff6C63FF),
       ),
