@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:proj3/signUp/sign_up.dart';
+import 'package:proj3/Authentication/wrapper.dart';
 
 class MyLandingPage extends StatelessWidget{
   const MyLandingPage({super.key});
@@ -94,7 +94,7 @@ class MyLandingPage extends StatelessWidget{
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder:(context) =>  const SignUp(),
+                                builder:(context) =>  const Wrapper(),
                               )
                             );
                           },
