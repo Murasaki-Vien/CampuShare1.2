@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:proj3/homepage/homepage.dart';
+import 'package:proj3/homepage/homepage_bottom_nav.dart';
 
 class MyVerified extends StatelessWidget {
   const MyVerified({super.key});
@@ -44,7 +45,9 @@ class MyVerified extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Myhomepage()));
+                        builder: (context) => const MyBottomNavBar()
+                      )
+                    );
                   },
                   child: Center(
                     child: Container(
