@@ -62,29 +62,29 @@ class _MyChatPageState extends State<MyChatPage> {
                           size : 61.8,
                         ),
                       ),
-                      Container(
-                        child : Column(
+                      
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           Text(
-                              "Charles Henricks Dela Peña",
-                              style : GoogleFonts.poppins(
-                                fontWeight : FontWeight.w500,
-                                fontSize : 15
-                              )
-                            ),
-                            Text(
-                              "I would like to inquire an Arduino Uno",
-                              textAlign : TextAlign.start,
-                              style : GoogleFonts.poppins(
-                                fontWeight : FontWeight.normal,
-                                fontSize : 10
-                              )
-                            ),
+                            "Charles Henricks Dela Peña",
+                            style : GoogleFonts.poppins(
+                              fontWeight : FontWeight.w500,
+                              fontSize : 15
+                            )
+                          ),
+                          Text(
+                            "I would like to inquire an Arduino Uno",
+                            textAlign : TextAlign.start,
+                            style : GoogleFonts.poppins(
+                              fontWeight : FontWeight.normal,
+                              fontSize : 10
+                            )
+                          ),
                         ],
                       )
-                      )
+                      
                     ],
                   )
                 ),
