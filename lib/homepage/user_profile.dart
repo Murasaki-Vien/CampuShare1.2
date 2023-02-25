@@ -12,13 +12,12 @@ class _MyUserProfileState extends State<MyUserProfile> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-          child: Center(
-        child: SingleChildScrollView(
-          child: Text("User profile Page"),
-        ),
-      )),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Text("User profile Page"),
+          ),
+        )
+      ),
     );
   }
 }
-
-//User profile test
