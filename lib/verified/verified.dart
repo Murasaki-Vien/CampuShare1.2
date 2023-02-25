@@ -45,7 +45,7 @@ class MyVerified extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const MyBottomNavBar()
+                        builder: (context) => const MyBottomNavBar() //test commitasdhfhasd approved at CHarles Branch
                       )
                     );
                   },
@@ -70,3 +70,5 @@ class MyVerified extends StatelessWidget {
     );
   }
 }
+
+//This is a comment that I want to commit
