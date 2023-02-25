@@ -26,14 +26,14 @@ class MyVerif extends StatelessWidget{
                 const SizedBox(height : 196,),
                 Center(
                   child : Text(
-                      "Input Code we've sent to your email.",
+                      "We have sent you a verification email",
                       style : GoogleFonts.inter(
                         fontSize : 15,
                         color : Colors.white,
                       )
-                    ),
+                  ),
                 ),
-
+                /*
                 //for the verification part
                 Form(
                   child : Padding(
@@ -41,7 +41,7 @@ class MyVerif extends StatelessWidget{
                     child: Row(
                       mainAxisAlignment : MainAxisAlignment.spaceBetween,
                       children:  [
-                        
+
                         //first textField
                         SizedBox(
                           height : 48,
@@ -50,7 +50,7 @@ class MyVerif extends StatelessWidget{
                             onChanged : (value) {
                               if (value.length == 1){
                                 FocusScope.of(context).nextFocus();
-                              } 
+                              }
                             },
                             controller : code1,
                             textAlign : TextAlign.center,
@@ -76,11 +76,11 @@ class MyVerif extends StatelessWidget{
                               ),
                               fillColor : Color(0xffCCCCCC),
                               filled : true,
-                              
+
                             ),
                           ),
                         ),
-                  
+
                         //Second textFormField
                         SizedBox(
                           height : 48,
@@ -89,7 +89,7 @@ class MyVerif extends StatelessWidget{
                             onChanged : (value) {
                               if (value.length == 1){
                                 FocusScope.of(context).nextFocus();
-                              } 
+                              }
                             },
                             controller : code2,
                             textAlign : TextAlign.center,
@@ -115,21 +115,21 @@ class MyVerif extends StatelessWidget{
                               ),
                               fillColor : Color(0xffCCCCCC),
                               filled : true,
-                              
+
                             ),
                           ),
                         ),
-                  
+
                         //third textFormField
                         SizedBox(
                           height : 48,
                           width : 48,
                           child: TextFormField(
-                            
+
                             onChanged : (value) {
                               if (value.length == 1){
                                 FocusScope.of(context).nextFocus();
-                              } 
+                              }
                             },
                             controller : code3,
                             textAlign : TextAlign.center,
@@ -158,7 +158,7 @@ class MyVerif extends StatelessWidget{
                             ),
                           ),
                         ),
-                  
+
                         //fourth textFormField
                         SizedBox(
                           height : 48,
@@ -167,7 +167,7 @@ class MyVerif extends StatelessWidget{
                             onChanged : (value) {
                               if (value.length == 1){
                                 FocusScope.of(context).nextFocus();
-                              } 
+                              }
                             },
                             controller : code4,
                             textAlign : TextAlign.center,
@@ -193,11 +193,11 @@ class MyVerif extends StatelessWidget{
                               ),
                               fillColor : Color(0xffCCCCCC),
                               filled : true,
-                              
+
                             ),
                           ),
                         ),
-                  
+
                         //fifth textFormField
                         SizedBox(
                           height : 48,
@@ -206,7 +206,7 @@ class MyVerif extends StatelessWidget{
                             onChanged : (value) {
                               if (value.length == 1){
                                 FocusScope.of(context).nextFocus();
-                              } 
+                              }
                             },
                             controller : code5,
                             textAlign : TextAlign.center,
@@ -232,7 +232,7 @@ class MyVerif extends StatelessWidget{
                               ),
                               fillColor : Color(0xffCCCCCC),
                               filled : true,
-                              
+
                             ),
                           ),
                         ),
@@ -263,10 +263,10 @@ class MyVerif extends StatelessWidget{
                         ),
                       ],
                     ),
-                    
-                          
-                      
-                    
+
+
+
+
                   ),
                 ),
                 //Next Section
@@ -296,7 +296,7 @@ class MyVerif extends StatelessWidget{
                         );
                       }
                     }
-                   
+
                     print(joinCode);
                   },
                   child: Container(
@@ -310,17 +310,17 @@ class MyVerif extends StatelessWidget{
                         child: Text('Next',
                           style : GoogleFonts.inter(
                             color : Colors.white,
-                            fontSize : 20, 
+                            fontSize : 20,
                           ),
                         ),
                       ),
                   ),
                 ),
-              ],
+             */],
             ),
           ),
         ),
       ),
     );
-  } 
+  }
 }

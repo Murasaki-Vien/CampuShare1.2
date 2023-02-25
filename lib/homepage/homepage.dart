@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -263,6 +264,7 @@ Widget buildMenuItems(BuildContext context) => Container(
                 leading: const Icon(Icons.exit_to_app),
                 title: const Text('Sign out'),
                 onTap: () {
+                  FirebaseAuth.instance.signOut();
                   //Add logic for sign out
                 }),
           ]),
