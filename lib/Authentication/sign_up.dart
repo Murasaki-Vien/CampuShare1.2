@@ -279,11 +279,19 @@ class _SignUpState extends State<SignUp> {
 
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: userEmailController.text.trim(),
-          password: passwordController.text.trim()
+        email: userEmailController.text.trim(),
+        password: passwordController.text.trim()
       );
     } on FirebaseAuthException catch (e) {
       print(e);
+      showDialog(
+        context: context,
+        builder: (context){
+          return const MyDialog(
+            text : "There are no inputs either on Name, Email or Password. Please Check carefully!",
+          );
+        },
+      );
       //Utils.showSnackBar(e.message);
     }
 

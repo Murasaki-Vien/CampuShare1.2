@@ -40,6 +40,14 @@ class _SignInState extends State<SignIn> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
+      showDialog(
+        context: context,
+        builder : (context){
+          return const MyDialog(
+            text : "There are no inputs either on Email or Password. Please Check carefully!",
+          );
+        }
+      );
     }
 
     //navigatorKey.currentState!.popUntil((route) => '/wrapper');
