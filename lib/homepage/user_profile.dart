@@ -19,14 +19,14 @@ class _MyUserProfileState extends State<MyUserProfile> {
           children: [
             Stack(
               children: <Widget>[
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: SvgPicture.asset(
-                      'lib/svg/rectangle.svg',
-                    ),
+               
+                Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: SvgPicture.asset(
+                    'lib/svg/rectangle.svg',
                   ),
                 ),
+                
 
                 /*profile picture*/
                 Padding(
@@ -75,7 +75,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           'Listings',
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                         Text(
@@ -83,7 +83,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           overflow: TextOverflow.visible,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                         Text(
@@ -91,7 +91,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           overflow: TextOverflow.visible,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                       ]),
@@ -105,7 +105,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           '10',
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                         Text(
@@ -113,7 +113,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           overflow: TextOverflow.visible,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                         Text(
@@ -121,14 +121,14 @@ class _MyUserProfileState extends State<MyUserProfile> {
                           overflow: TextOverflow.visible,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Color(0xFF9E9E9E),
+                            color: const Color(0xFF9E9E9E),
                           ),
                         ),
                       ]),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 370, 0, 50),
-                  child: const Divider(
+                const Padding(
+                  padding:  EdgeInsets.fromLTRB(0, 370, 0, 50),
+                  child:  Divider(
                     thickness: 1,
                     color: Color(0xFF9E9E9E),
                   ),
@@ -181,7 +181,7 @@ class _MyUserProfileState extends State<MyUserProfile> {
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           fontSize: 15,
-                          color: Color(0xff6C63FF),
+                          color: const Color(0xff6C63FF),
                         )),
                   ]),
                 )
