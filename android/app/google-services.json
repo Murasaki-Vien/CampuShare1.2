@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "28217118329",
+    "project_id": "campushare-47fe3",
+    "storage_bucket": "campushare-47fe3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28217118329:android:4bcc0b21c311aa0d96cea8",
+        "android_client_info": {
+          "package_name": "com.theboys.campushare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28217118329-fjagdi3498st4ih9r7oghc9dlb4jei9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAN85H1rxi_Xm3nr1kr5F409OPX6sg1h0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28217118329-fjagdi3498st4ih9r7oghc9dlb4jei9d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

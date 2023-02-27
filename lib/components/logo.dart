@@ -4,20 +4,20 @@ import 'package:flutter_svg/svg.dart';
 class MyLogo extends StatelessWidget {
   final String image;
   final logoName;
+  final double widthSize;
+  final double heightSize;
   const MyLogo({
       super.key,
       required this.image,
       this.logoName,
+      required this.widthSize,
+      required this.heightSize
     });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child : SvgPicture.asset(
+    return SvgPicture.asset(
           image,
-          width : 35,
-          height : 35,
-        ),
-    );
+        );
   }
 }

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proj3/Authentication/sign_up.dart';
 import 'package:proj3/components/search_bar.dart';
 import 'package:proj3/components/categbuttons.dart';
 import 'package:proj3/components/lend_borrow.dart';
@@ -36,7 +38,7 @@ class _MyhomepageState extends State<Myhomepage> {
 
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xff6C63FF),
+        backgroundColor: const Color(0xff6C63FF),
       ),
 
       drawer: Drawer(
@@ -263,6 +265,12 @@ Widget buildMenuItems(BuildContext context) => Container(
                 leading: const Icon(Icons.exit_to_app),
                 title: const Text('Sign out'),
                 onTap: () {
+                  FirebaseAuth.instance.signOut();
+                 // Navigator.of(context).push(
+                  //  MaterialPageRoute(
+                    //  builder:(context) => SignUp(onClickedSignIn :() => null,),
+                   // )
+                 // );
                   //Add logic for sign out
                 }),
           ]),
