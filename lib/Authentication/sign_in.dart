@@ -45,6 +45,7 @@ class _SignInState extends State<SignIn> {
         builder : (context){
           return const MyDialog(
             text : "There are no inputs either on Email or Password. Please Check carefully!",
+            dialogSize : 138,
           );
         }
       );
@@ -72,7 +73,7 @@ class _SignInState extends State<SignIn> {
                       children: [
                         Text(
                             'Log In',
-                            style : GoogleFonts.inter(
+                            style : GoogleFonts.poppins(
                               fontSize : 20,
                               fontWeight :FontWeight.w500,
                             )
@@ -81,7 +82,23 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
 
-                  const SizedBox(height : 18),
+                  const MyLogo(
+                    image: 'lib/svg/log_inLogo.svg', 
+                    widthSize: 224, 
+                    heightSize: 167
+                  ),
+
+                  const SizedBox(height : 16),
+
+                  Text(
+                    "We’re happy to have you back!",
+                    style : GoogleFonts.poppins(
+                      fontSize : 15,
+                      fontWeight : FontWeight.w500 
+                    ),  
+                  ),
+
+                  const SizedBox(height : 30),
 
                   InputBox(
                     controller: userEmailController,
@@ -95,7 +112,7 @@ class _SignInState extends State<SignIn> {
                     obscureText: true,
                   ),
 
-                  const SizedBox(height : 156),
+                  const SizedBox(height : 76),
 
                   //Log In btn
                   GestureDetector(
@@ -133,98 +150,14 @@ class _SignInState extends State<SignIn> {
                     ),
                   ),
 
-                  const SizedBox(height : 40),
-
-
-                  //or sign up with
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left : 22.0),
-                          child: Divider(
-                            color: Colors.grey[400],
-                            thickness : 2,
-                          ),
-                        ),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Text(
-                          'Or Sign up with',
-                          style : GoogleFonts.inter(
-                            textStyle : TextStyle(color : Colors.grey[700]),
-                            fontSize : 13,
-                          ),
-                        ),
-                      ),
-
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right : 22.0),
-                          child: Divider(
-                            color: Colors.grey[400],
-                            thickness : 2,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
                   const SizedBox(height : 30),
-
-                  //logo
-                  Row(
-                    mainAxisAlignment : MainAxisAlignment.center,
-                    children : [
-
-                      //facebook logo
-                      InkWell(
-                        child : const MyLogo(
-                          image : 'lib/svg/facebook.svg',
-                        ),
-                        onTap : (){
-                          print('Facebook Logo');
-                        },
-                      ),
-
-
-                      const SizedBox(width : 16),
-
-                      //google logo
-                      InkWell(
-                          child : const MyLogo(
-                            image: 'lib/svg/Google.svg',
-                          ),
-                          onTap : (){
-                            print('Google Logo');
-                          }
-                      ),
-
-
-                      const SizedBox(width : 16),
-
-                      //Apple logo
-                      InkWell(
-                          child : const MyLogo(
-                            image: 'lib/svg/Apple.svg',
-                          ),
-                          onTap : (){
-                            print('Apple Logo');
-                          }
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height : 32),
                   //already have an account
                   Row(
                     mainAxisAlignment : MainAxisAlignment.center,
                     children: [
                       Text(
                         "Don't have an account?",
-                        style : GoogleFonts.inter(textStyle : const TextStyle(
+                        style : GoogleFonts.poppins(textStyle : const TextStyle(
                           fontSize : 13,
                         )
                         ),
@@ -237,7 +170,7 @@ class _SignInState extends State<SignIn> {
 
                         child : Text(
                           ' Sign up',
-                          style : GoogleFonts.inter(
+                          style : GoogleFonts.poppins(
                               textStyle : const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,

@@ -14,17 +14,17 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         child : Container(
-        padding : const EdgeInsets.only(top : 17, bottom : 17, right : 70, left : 69),
+        padding : const EdgeInsets.only(top : 17, bottom : 17, right : 0, left : 0),
         margin : const EdgeInsets.symmetric(horizontal : 73),
         decoration : BoxDecoration(
-          color : (isChecked)? Colors.deepPurple[400] : Colors.black,
+          color : (isChecked)? const Color(0xFF6C63FF) : Colors.black,
           
           borderRadius : BorderRadius.circular(10), 
         ),
         child : Center(
           child : Text(
             buttonName,
-            style : GoogleFonts.inter(
+            style : GoogleFonts.poppins(
               textStyle : const TextStyle(
                 color : Colors.white,
                 fontSize : 20,

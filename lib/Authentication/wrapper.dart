@@ -26,7 +26,7 @@ class _WrapperState extends State<Wrapper> {
             } else if (snapshot.hasData) {
               return const VerifyEmailPage();
             } else {
-              return AuthPage();
+              return const AuthPage();
             }
           }
       )

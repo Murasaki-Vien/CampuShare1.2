@@ -19,14 +19,14 @@ class MysearchBar extends StatelessWidget {
         enabledBorder : const OutlineInputBorder(
           borderRadius :  BorderRadius.all(Radius.circular(50)),
           borderSide : BorderSide(
-            color :  Color(0xFFB593FF),
+            color :  Color(0xFF6C63FF),
             width : 2,
           )
         ),
         focusedBorder : const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50)),
           borderSide : BorderSide(
-              color : Color(0xFFB593FF),
+              color : Color(0xFF6C63FF),
               width : 2,
             ),
         ),

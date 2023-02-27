@@ -5,10 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyDialog extends StatelessWidget{
   final String text;
+  final double dialogSize;
   const MyDialog({
       super.key,
-      required this.text
-    });
+      required this.text,
+      required this.dialogSize
+    }
+  );
 
   @override
   Widget build(BuildContext context){
@@ -16,14 +19,14 @@ class MyDialog extends StatelessWidget{
       backgroundColor : Colors.deepPurple[400],
       scrollable : true,
       content : SizedBox(
-        height : 120,
+        height : dialogSize,
         child : Center(
           child: Column(
               mainAxisAlignment : MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   "WARNING:",
-                  style : GoogleFonts.inter(
+                  style : GoogleFonts.poppins(
                     color : Colors.red,
                     fontWeight : FontWeight.bold,
                   ),
@@ -32,7 +35,7 @@ class MyDialog extends StatelessWidget{
                   text,
                   //"There are no inputs either on Name, Email or Password. Please Check carefully!",
                   textAlign : TextAlign.center,
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontWeight : FontWeight.bold,
                   ),

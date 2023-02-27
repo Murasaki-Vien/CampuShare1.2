@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InputBox extends StatelessWidget{
   final controller;
@@ -24,22 +25,22 @@ class InputBox extends StatelessWidget{
             enabledBorder : const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               borderSide : BorderSide(
-                color : Color(0xFFB593FF),
+                color : Color(0xFF6C63FF),
                 width : 3,
               ),
             ),
             focusedBorder : const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               borderSide : BorderSide(
-                  color : Colors.blueAccent,
+                  color : Color(0xff6C63FF),
                   width : 3,
                 ),
             ),
             fillColor : Colors.grey.shade200,
             filled : true,
             hintText : hintText,
-            hintStyle : const TextStyle(
-              color : Color(0xFFB593FF)
+            hintStyle : GoogleFonts.poppins(
+              color : Colors.grey.shade400,
             ),
           ),
         ),

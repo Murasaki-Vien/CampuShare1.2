@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:proj3/homepage/homepage.dart';
 import 'package:proj3/Authentication/verification.dart';
 import 'package:proj3/homepage/homepage_bottom_nav.dart';
+import 'package:proj3/verified/verified.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({Key? key}) : super(key: key);
@@ -55,11 +56,10 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     } catch (e) {
       print(e);
     }
-
   }
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? MyBottomNavBar()
+      ? const MyBottomNavBar()
       : MyVerif();
 }
