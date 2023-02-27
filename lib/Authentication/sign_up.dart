@@ -212,15 +212,31 @@ class _SignUpState extends State<SignUp> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
-      showDialog(
-        context: context,
-        builder: (context){
-          return const MyDialog(
-            text : "There are no inputs either on Name, Email or Password. Please Check carefully!",
-            dialogSize : 162,
-          );
-        },
-      );
+      if(userNameController.text == "" || 
+        userEmailController.text == "" ||
+        passwordController.text == ""
+      ){
+        showDialog(
+          context: context,
+          builder: (context){
+            return const MyDialog(
+              text : "There are no inputs either on Name, Email or Password. Please Check carefully!",
+              dialogSize : 162,
+            );
+          },
+        );
+      }
+      else{
+        showDialog(
+          context: context,
+          builder: (context){
+            return MyDialog(
+              text : e.message!,
+              dialogSize : 162,
+            );
+          },
+        );
+      }
       //Utils.showSnackBar(e.message);
     }
 

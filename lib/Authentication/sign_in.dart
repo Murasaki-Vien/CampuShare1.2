@@ -40,15 +40,30 @@ class _SignInState extends State<SignIn> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
-      showDialog(
-        context: context,
-        builder : (context){
-          return const MyDialog(
-            text : "There are no inputs either on Email or Password. Please Check carefully!",
-            dialogSize : 138,
-          );
-        }
-      );
+      if(userEmailController.text == "" ||
+        passwordController.text == ""
+      ){
+        showDialog(
+          context: context,
+          builder: (context){
+            return const MyDialog(
+              text : "There are no inputs either on Email or Password. Please Check carefully!",
+              dialogSize : 162,
+            );
+          },
+        );
+      }
+      else{
+        showDialog(
+          context: context,
+          builder: (context){
+            return const MyDialog(
+              text : "This account has not been created yet. Or misspelled. Please Check Carefully!",
+              dialogSize : 162,
+            );
+          },
+        );
+      }
     }
 
     //navigatorKey.currentState!.popUntil((route) => '/wrapper');
