@@ -137,4 +137,3 @@ class MyLandingPage extends StatelessWidget{
   }
 }
 
-//Approved second sprint Febuary 27
