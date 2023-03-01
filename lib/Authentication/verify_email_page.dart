@@ -8,9 +8,6 @@ import 'package:proj3/homepage/homepage_bottom_nav.dart';
 
 import '../components/buttons.dart';
 
-import '../components/buttons.dart';
-import '../components/snackBar.dart';
-
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({Key? key}) : super(key: key);
 
@@ -70,7 +67,6 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
           : MyVerif();
 
   //from Charles2 - COMMIT2 - March2
-    //from Charles2 - COMMIT2 - March2
 /*
   Widget build(BuildContext context) {
     if (isEmailVerified == true) {
