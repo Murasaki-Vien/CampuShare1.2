@@ -70,7 +70,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
           : MyVerif();
 
   //from Charles2 - COMMIT2 - March2
-  
+    //from Charles2 - COMMIT2 - March2
 /*
   Widget build(BuildContext context) {
     if (isEmailVerified == true) {
