@@ -66,7 +66,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
           ? MyBottomNavBar()
           : MyVerif();
 
-
+  //from Charles2 - COMMIT2 - March2
 /*
   Widget build(BuildContext context) {
     if (isEmailVerified == true) {
