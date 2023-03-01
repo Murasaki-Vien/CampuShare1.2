@@ -8,6 +8,7 @@ import 'package:proj3/components/categbuttons.dart';
 import 'package:proj3/components/lend_borrow.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:proj3/homepage/calendar.dart';
+import 'package:proj3/homepage/search_page.dart';
 //side panel
 import 'package:proj3/sidebar/help.dart';
 import 'package:proj3/sidebar/data_privacy.dart';
@@ -95,11 +96,17 @@ class _MyhomepageState extends State<Myhomepage> {
                   Center(
                     child: Padding(
                         padding: const EdgeInsets.fromLTRB(45, 148, 45, 0),
-                        child: MysearchBar(
-                            controller: searchController,
-                            hinttext: "Search for Everything",
-                            icon: const Icon(Icons.search,
-                                color: Color(0xffA5A3A3)))),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MySearchPage()));
+                          },
+                          child: MysearchBar(
+                              controller: searchController,
+                              hinttext: "Search for Everything",
+                              icon: const Icon(Icons.search,
+                                  color: Color(0xffA5A3A3))),
+                        )),
                   ),
                 ],
               ),
