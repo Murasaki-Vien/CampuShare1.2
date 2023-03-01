@@ -8,6 +8,9 @@ import 'package:proj3/homepage/homepage_bottom_nav.dart';
 
 import '../components/buttons.dart';
 
+import '../components/buttons.dart';
+import '../components/snackBar.dart';
+
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({Key? key}) : super(key: key);
 

@@ -6,6 +6,7 @@ import 'package:proj3/components/buttons.dart';
 import 'package:proj3/components/logo.dart';
 import 'package:proj3/Authentication/verification.dart';
 import 'package:proj3/components/show_dialog.dart';
+import '../components/snackBar.dart';
 import '../main.dart';
 
 class SignUp extends StatefulWidget {
@@ -211,7 +212,7 @@ class _SignUpState extends State<SignUp> {
         password: passwordController.text.trim()
       );
     } on FirebaseAuthException catch (e) {
-      print(e);
+      //print(e);
       if(userNameController.text == "" || 
         userEmailController.text == "" ||
         passwordController.text == ""
@@ -237,7 +238,16 @@ class _SignUpState extends State<SignUp> {
           },
         );
       }
-      //Utils.showSnackBar(e.message);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: CustomSnackBarContent(
+            errorText: e.message!,
+          ),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+      );
     }
 
     //navigatorKey.currentState!.popUntil((route) => route.isFirst);

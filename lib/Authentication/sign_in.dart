@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proj3/components/buttons.dart';
 import 'package:proj3/components/input_box.dart';
 import 'package:proj3/components/logo.dart';
 import 'package:proj3/components/show_dialog.dart';
+import 'package:proj3/components/snackBar.dart';
 import 'package:proj3/homepage/homepage.dart';
 
 import '../main.dart';
@@ -39,31 +41,17 @@ class _SignInState extends State<SignIn> {
           password: passwordController.text.trim()
       );
     } on FirebaseAuthException catch (e) {
-      print(e);
-      if(userEmailController.text == "" ||
-        passwordController.text == ""
-      ){
-        showDialog(
-          context: context,
-          builder: (context){
-            return const MyDialog(
-              text : "There are no inputs either on Email or Password. Please Check carefully!",
-              dialogSize : 162,
-            );
-          },
-        );
-      }
-      else{
-        showDialog(
-          context: context,
-          builder: (context){
-            return const MyDialog(
-              text : "This account has not been created yet. Or misspelled. Please Check Carefully!",
-              dialogSize : 162,
-            );
-          },
-        );
-      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: CustomSnackBarContent(
+            errorText: e.message!,
+          ),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+      );
+      //print(e);
     }
 
     //navigatorKey.currentState!.popUntil((route) => '/wrapper');
