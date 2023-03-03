@@ -57,15 +57,16 @@ class _MyhomepageState extends State<Myhomepage> {
             children: [
               Stack(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(0),
-                    child: AspectRatio(
-                      aspectRatio: 18 / 9,
-                      child: SvgPicture.asset(
-                        'lib/svg/rectangle.svg',
-                      ),
-                    ),
+                  Container(
+                  height : 179,
+                  decoration :  const BoxDecoration(
+                    color:  Color(0xff6C63FF),
+                    borderRadius : BorderRadius.only(
+                      bottomLeft : Radius.circular(48),
+                      bottomRight : Radius.circular(48), 
+                    )
                   ),
+                ),
 
                   //header
                   Center(
@@ -92,7 +93,6 @@ class _MyhomepageState extends State<Myhomepage> {
                     ),
                   ),
 
-                  //search bar
                   Center(
                     child: Padding(
                         padding: const EdgeInsets.fromLTRB(45, 148, 45, 0),
@@ -160,16 +160,15 @@ class _MyhomepageState extends State<Myhomepage> {
                 thickness: 1,
                 color: Colors.black,
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        borrowisClicked =
-                            false; //remove the color of borrow req
-                        lendisClicked =
-                            !lendisClicked; //highlight the Lend list
+                        borrowisClicked = false; //remove the color of borrow req
+                        lendisClicked = !lendisClicked; //highlight the Lend list
                         textName = 'listings';
                       });
                       print("Test for Lend");
@@ -179,12 +178,12 @@ class _MyhomepageState extends State<Myhomepage> {
                       lendBorrowisClicked: lendisClicked,
                     ),
                   ),
+                  
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         lendisClicked = false; //remove color Lend List
-                        borrowisClicked =
-                            !borrowisClicked; //highlight the lend list
+                        borrowisClicked = !borrowisClicked; //highlight the lend list
                         textName = 'requests';
                       });
                       print("Test for Borrow");
@@ -196,6 +195,7 @@ class _MyhomepageState extends State<Myhomepage> {
                   ),
                 ],
               ),
+
               const Divider(
                 thickness: 1,
                 color: Colors.black,

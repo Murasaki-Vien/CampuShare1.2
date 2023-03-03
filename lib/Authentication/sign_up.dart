@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -210,6 +211,13 @@ class _SignUpState extends State<SignUp> {
         email: userEmailController.text.trim(),
         password: passwordController.text.trim()
       );
+
+      //add user details 
+      addUserDetails(
+        userNameController.text.trim(), 
+        userEmailController.text.trim(),
+      );
+
     } on FirebaseAuthException catch (e) {
       print(e);
       if(userNameController.text == "" || 
@@ -241,5 +249,13 @@ class _SignUpState extends State<SignUp> {
     }
 
     //navigatorKey.currentState!.popUntil((route) => route.isFirst);
+  }
+
+   Future addUserDetails(String userName, String email) async{
+    await FirebaseFirestore.instance.collection('users').add({
+        'user name' : userName,
+        'email' : email,
+      }
+    );
   }
 }
