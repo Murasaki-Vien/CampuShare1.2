@@ -2,12 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:proj3/Authentication/sign_up.dart';
 import 'package:proj3/components/search_bar.dart';
 import 'package:proj3/components/categbuttons.dart';
 import 'package:proj3/components/lend_borrow.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:proj3/homepage/calendar.dart';
+
 import 'package:proj3/homepage/search_page.dart';
 //side panel
 import 'package:proj3/sidebar/help.dart';
@@ -58,15 +56,14 @@ class _MyhomepageState extends State<Myhomepage> {
               Stack(
                 children: <Widget>[
                   Container(
-                  height : 179,
-                  decoration :  const BoxDecoration(
-                    color:  Color(0xff6C63FF),
-                    borderRadius : BorderRadius.only(
-                      bottomLeft : Radius.circular(48),
-                      bottomRight : Radius.circular(48), 
-                    )
+                    height: 179,
+                    decoration: const BoxDecoration(
+                        color: Color(0xff6C63FF),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(48),
+                          bottomRight: Radius.circular(48),
+                        )),
                   ),
-                ),
 
                   //header
                   Center(
@@ -132,22 +129,22 @@ class _MyhomepageState extends State<Myhomepage> {
                   children: [
                     MyCategoryBtn(
                       btnName: "Textbooks",
-                      svgName: 'lib/svg/book-alert-outline.svg',
+                      svgName: 'assets/svg/book-alert-outline.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
                       btnName: "Electronics",
-                      svgName: 'lib/svg/electronics-logo.svg',
+                      svgName: 'assets/svg/electronics-logo.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
                       btnName: "Sports",
-                      svgName: 'lib/svg/sports-logo.svg',
+                      svgName: 'assets/svg/sports-logo.svg',
                       btnClicked: btnClicked,
                     ),
                     MyCategoryBtn(
                       btnName: "Music",
-                      svgName: 'lib/svg/music-logo.svg',
+                      svgName: 'assets/svg/music-logo.svg',
                       btnClicked: btnClicked,
                     ),
                   ],
@@ -167,8 +164,10 @@ class _MyhomepageState extends State<Myhomepage> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        borrowisClicked = false; //remove the color of borrow req
-                        lendisClicked = !lendisClicked; //highlight the Lend list
+                        borrowisClicked =
+                            false; //remove the color of borrow req
+                        lendisClicked =
+                            !lendisClicked; //highlight the Lend list
                         textName = 'listings';
                       });
                       print("Test for Lend");
@@ -178,12 +177,12 @@ class _MyhomepageState extends State<Myhomepage> {
                       lendBorrowisClicked: lendisClicked,
                     ),
                   ),
-                  
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         lendisClicked = false; //remove color Lend List
-                        borrowisClicked = !borrowisClicked; //highlight the lend list
+                        borrowisClicked =
+                            !borrowisClicked; //highlight the lend list
                         textName = 'requests';
                       });
                       print("Test for Borrow");
@@ -202,13 +201,14 @@ class _MyhomepageState extends State<Myhomepage> {
               ),
 
               const SizedBox(height: 38),
-              SvgPicture.asset('lib/svg/no_items-logo.svg'),
+              SvgPicture.asset('assets/svg/no_items-logo.svg'),
               Text(
                 "No $textName yet.",
                 style: GoogleFonts.poppins(
                   fontSize: 15,
                 ),
               ),
+              const SizedBox(height: 500),
             ],
           ),
         ),
@@ -273,11 +273,11 @@ Widget buildMenuItems(BuildContext context) => Container(
                 title: const Text('Sign out'),
                 onTap: () {
                   FirebaseAuth.instance.signOut();
-                 // Navigator.of(context).push(
+                  // Navigator.of(context).push(
                   //  MaterialPageRoute(
-                    //  builder:(context) => SignUp(onClickedSignIn :() => null,),
-                   // )
-                 // );
+                  //  builder:(context) => SignUp(onClickedSignIn :() => null,),
+                  // )
+                  // );
                   //Add logic for sign out
                 }),
           ]),

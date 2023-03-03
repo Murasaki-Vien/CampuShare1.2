@@ -5,13 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:proj3/components/input_box.dart';
 import 'package:proj3/components/buttons.dart';
 import 'package:proj3/components/logo.dart';
-import 'package:proj3/Authentication/verification.dart';
 import 'package:proj3/components/show_dialog.dart';
-import '../main.dart';
 
 class SignUp extends StatefulWidget {
   final Function() onClickedSignIn;
-
 
   const SignUp({
     Key? key,
@@ -25,7 +22,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
   //for the checkbox
   bool isChecked = false;
 
@@ -35,104 +31,98 @@ class _SignUpState extends State<SignUp> {
   final passwordController = TextEditingController();
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
       return const Color(0xFF6C63FF);
     }
 
     return Scaffold(
-      resizeToAvoidBottomInset : false,
-      backgroundColor : Colors.white,
-      body : SingleChildScrollView(
-        child : SafeArea(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: SafeArea(
           child: Center(
-            child : Column(
-              mainAxisAlignment : MainAxisAlignment.end,
-              children: [
-                const SizedBox(height : 16),
+            child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              const SizedBox(height: 16),
 
-                //create account
-                Padding(
-                  padding: const EdgeInsets.only(left : 15, right : 22, top : 0, bottom : 0),
-                  child: Row(
-                    mainAxisAlignment : MainAxisAlignment.start,
-                    children: [
-                      Text(
-                          'Create Account',
-                          style : GoogleFonts.poppins(
-                            fontSize : 20,
-                            fontWeight :FontWeight.w500,
-                          )
-                      ),
-                    ],
-                  ),
+              //create account
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15, right: 22, top: 0, bottom: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text('Create Account',
+                        style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        )),
+                  ],
                 ),
+              ),
 
-                const SizedBox(height : 20),    
+              const SizedBox(height: 20),
 
-                const MyLogo(
-                  image: 'lib/svg/create_accLogo.svg',
-                  widthSize : 273,
-                  heightSize : 141,
+              const MyLogo(
+                image: 'assets/svg/create_accLogo.svg',
+                widthSize: 273,
+                heightSize: 141,
+              ),
+
+              const SizedBox(height: 20),
+
+              //Name
+              InputBox(
+                controller: userNameController,
+                hintText: 'Gabriel Russel M. Dela Pena',
+                obscureText: false,
+              ),
+
+              //email
+              InputBox(
+                controller: userEmailController,
+                hintText: 'example@gmail.com',
+                obscureText: false,
+              ),
+
+              //password
+              InputBox(
+                controller: passwordController,
+                hintText: 'Input Password',
+                obscureText: true,
+              ),
+
+              const SizedBox(height: 33),
+              //Agree to terms and conditions
+              Container(
+                padding: const EdgeInsets.fromLTRB(6, 0, 0, 0),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      checkColor: Colors.white,
+                      fillColor: MaterialStateProperty.resolveWith(getColor),
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value!;
+                        });
+                      },
+                    ),
+                    Text(
+                      'I agree to the terms and conditions',
+                      style: GoogleFonts.poppins(fontSize: 13),
+                    ),
+                  ],
                 ),
+              ),
 
-                const SizedBox(height : 20),
+              const SizedBox(height: 49),
 
-                //Name
-                InputBox(
-                  controller: userNameController,
-                  hintText: 'Gabriel Russel M. Dela Pena',
-                  obscureText: false,
-                ),
-
-                //email
-                InputBox(
-                  controller: userEmailController,
-                  hintText: 'example@gmail.com',
-                  obscureText: false,
-                ),
-
-                //password
-                InputBox(
-                  controller: passwordController,
-                  hintText: 'Input Password',
-                  obscureText: true,
-                ),
-
-                const SizedBox(height : 33),
-                //Agree to terms and conditions
-                Container(
-                  padding : const EdgeInsets.fromLTRB(6, 0, 0, 0),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        checkColor: Colors.white,
-                        fillColor: MaterialStateProperty.resolveWith(getColor),
-                        value : isChecked,
-                        onChanged : (bool? value) {
-                          setState((){
-                            isChecked = value!;
-                          }
-                          );
-                        },
-                      ),
-                      Text('I agree to the terms and conditions',
-                        style : GoogleFonts.poppins(
-                            fontSize : 13
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height : 49),
-
-
-                //Sign up button
-                GestureDetector(
-                  onTap : () {
-                    signUp();
-                    /* if((userNameController.text == '') ||
+              //Sign up button
+              GestureDetector(
+                onTap: () {
+                  signUp();
+                  /* if((userNameController.text == '') ||
                         (userEmailController.text == '' ||
                         (passwordController.text == ''))){
                           showDialog(
@@ -154,45 +144,43 @@ class _SignUpState extends State<SignUp> {
                         print(userEmailController.text);
                         print(passwordController.text);
                         */
-                  },
-                  child : MyButton(
-                    isChecked : isChecked,
-                    buttonName : 'Sign Up',
+                },
+                child: MyButton(
+                  isChecked: isChecked,
+                  buttonName: 'Sign Up',
+                ),
+              ),
+
+              const SizedBox(height: 27),
+
+              //already have an account
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Have an account?',
+                    style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                      fontSize: 13,
+                    )),
                   ),
-                ),
-
-                const SizedBox(height : 27),
-
-                //already have an account
-                Row(
-                  mainAxisAlignment : MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Have an account?',
-                      style : GoogleFonts.poppins(textStyle : const TextStyle(
-                        fontSize : 13,
-                      )
-                      ),
+                  GestureDetector(
+                    onTap: widget.onClickedSignIn,
+                    child: Text(
+                      ' Log in',
+                      style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF6C63FF),
+                      )),
                     ),
-                    GestureDetector(
-                      onTap : widget.onClickedSignIn,
-                      child : Text(
-                        ' Log in',
-                        style : GoogleFonts.poppins(textStyle : const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color : Color(0xFF6C63FF),
-                        )),
+                  ),
+                ],
+              ),
 
-                      ),
-                    ),
-                  ],
-                ),
-                
-                const SizedBox(height : 56),
-              ]
-
-            ),
+              const SizedBox(height: 56),
+            ]),
           ),
         ),
       ),
@@ -208,39 +196,36 @@ class _SignUpState extends State<SignUp> {
 
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: userEmailController.text.trim(),
-        password: passwordController.text.trim()
-      );
+          email: userEmailController.text.trim(),
+          password: passwordController.text.trim());
 
-      //add user details 
+      //add user details
       addUserDetails(
-        userNameController.text.trim(), 
+        userNameController.text.trim(),
         userEmailController.text.trim(),
       );
-
     } on FirebaseAuthException catch (e) {
       print(e);
-      if(userNameController.text == "" || 
-        userEmailController.text == "" ||
-        passwordController.text == ""
-      ){
+      if (userNameController.text == "" ||
+          userEmailController.text == "" ||
+          passwordController.text == "") {
         showDialog(
           context: context,
-          builder: (context){
+          builder: (context) {
             return const MyDialog(
-              text : "There are no inputs either on Name, Email or Password. Please Check carefully!",
-              dialogSize : 162,
+              text:
+                  "There are no inputs either on Name, Email or Password. Please Check carefully!",
+              dialogSize: 162,
             );
           },
         );
-      }
-      else{
+      } else {
         showDialog(
           context: context,
-          builder: (context){
+          builder: (context) {
             return MyDialog(
-              text : e.message!,
-              dialogSize : 162,
+              text: e.message!,
+              dialogSize: 162,
             );
           },
         );
@@ -251,11 +236,10 @@ class _SignUpState extends State<SignUp> {
     //navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 
-   Future addUserDetails(String userName, String email) async{
+  Future addUserDetails(String userName, String email) async {
     await FirebaseFirestore.instance.collection('users').add({
-        'user name' : userName,
-        'email' : email,
-      }
-    );
+      'user name': userName,
+      'email': email,
+    });
   }
 }
