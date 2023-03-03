@@ -38,6 +38,7 @@ class _SignInState extends State<SignIn> {
           email: userEmailController.text.trim(),
           password: passwordController.text.trim()
       );
+
     } on FirebaseAuthException catch (e) {
       print(e);
       if(userEmailController.text == "" ||
@@ -68,7 +69,7 @@ class _SignInState extends State<SignIn> {
 
     //navigatorKey.currentState!.popUntil((route) => '/wrapper');
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -106,7 +107,7 @@ class _SignInState extends State<SignIn> {
                   const SizedBox(height : 16),
 
                   Text(
-                    "We’re happy to have you back!",
+                    "We're happy to have you back!",
                     style : GoogleFonts.poppins(
                       fontSize : 15,
                       fontWeight : FontWeight.w500 
