@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:proj3/Authentication/auth_page.dart';
-import 'package:proj3/Authentication/sign_in.dart';
-import 'package:proj3/Authentication/sign_up.dart';
+
 import 'package:proj3/Authentication/verify_email_page.dart';
 
 class Wrapper extends StatefulWidget {
@@ -10,7 +9,6 @@ class Wrapper extends StatefulWidget {
 
   @override
   State<Wrapper> createState() => _WrapperState();
-
 }
 
 class _WrapperState extends State<Wrapper> {
@@ -28,8 +26,5 @@ class _WrapperState extends State<Wrapper> {
             } else {
               return const AuthPage();
             }
-          }
-      )
-  );
+          }));
 }
-
