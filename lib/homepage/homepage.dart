@@ -117,7 +117,7 @@ class _MyhomepageState extends State<Myhomepage> {
                           onPressed: () {
                             // Handle second menu option
                             Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const MyHomePage(
+                              builder: (context) =>const MyHomePage(
                                   title: 'Create Borrow Request'),
                             ));
                           },
@@ -327,6 +327,31 @@ class _MyhomepageState extends State<Myhomepage> {
         top: MediaQuery.of(context).padding.top,
       ));
 }
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: const BackButton(
+          color: Colors.black,
+        ),
+        centerTitle: false,
+        title: Text(title, style: TextStyle(color: Colors.black)),
+        actions: <Widget>[],
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      ),
+      body: const Center(
+        child: Text('We are still working on this page! Love you'),
+      ),
+    );
+  }
+}
+
 
 Widget buildMenuItems(BuildContext context) => Container(
       padding: const EdgeInsets.all(24),
