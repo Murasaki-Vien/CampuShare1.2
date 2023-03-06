@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/services.dart';
-import 'package:proj3/verified/verified.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:proj3/components/logo.dart';
 
-class MyVerif extends StatelessWidget{
+class MyVerif extends StatelessWidget {
   MyVerif({super.key});
 
   final code1 = TextEditingController();
@@ -15,66 +13,61 @@ class MyVerif extends StatelessWidget{
   final code5 = TextEditingController();
 
   @override
-  Widget build(BuildContext context){
-    return  Scaffold(
-      resizeToAvoidBottomInset : false,
-      backgroundColor : const Color(0xffFFFFFF),
-      body : Form(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: const Color(0xffFFFFFF),
+      body: Form(
         child: SafeArea(
           child: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: [
-                    
-                    const SizedBox(height : 241,),
-                    SizedBox(
-                      child: Center(
-                        child : Column(
-                          children: [
-
-                            const MyLogo(
-                              image : 'lib/svg/verification_mail.svg',
-                              widthSize : 161,
-                              heightSize : 145,
+                  const SizedBox(
+                    height: 241,
+                  ),
+                  SizedBox(
+                    child: Center(
+                        child: Column(
+                      children: [
+                        const MyLogo(
+                          image: 'assets/svg/verification_mail.svg',
+                          widthSize: 161,
+                          heightSize: 145,
+                        ),
+                        const SizedBox(height: 60),
+                        SizedBox(
+                          height: 64,
+                          width: 330,
+                          child: Text(
+                            "We've sent  a verification link to your account. Kindly check!",
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
                             ),
-
-                            const SizedBox(height : 60),    
-
-                            SizedBox(
-                              height : 64,
-                              width : 330,
-                              child: Text(
-                                  "We've sent  a verification link to your account. Kindly check!",
-                                  style : GoogleFonts.poppins(
-                                    fontSize : 20,
-                                    color : Colors.black,
-                                    fontWeight : FontWeight.bold, 
-                                  ),
-                                  textAlign : TextAlign.center,
-                              ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        SizedBox(
+                          height: 48,
+                          width: 251,
+                          child: Text(
+                            "Glad to have you here with us at CampuShare!",
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              color: Colors.grey.shade900,
+                              fontWeight: FontWeight.w100,
                             ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    )),
+                  ),
 
-                            const SizedBox(height : 15),
-
-                            SizedBox(
-                              height : 48,
-                              width : 251,
-                              child: Text(
-                                  "Glad to have you here with us at CampuShare!",
-                                  style : GoogleFonts.poppins(
-                                    fontSize : 16,
-                                    color : Colors.grey.shade900,
-                                    fontWeight : FontWeight.w100, 
-                                  ),
-                                  textAlign : TextAlign.center,
-                              ),
-                            ),
-                          ],
-                        )
-                      ),
-                    ),
-
-                    /*
+                  /*
                     //for the verification part
                     Form(
                       child : Padding(
@@ -357,7 +350,8 @@ class MyVerif extends StatelessWidget{
                           ),
                       ),
                     ),
-                */],
+                */
+                ],
               ),
             ),
           ),
