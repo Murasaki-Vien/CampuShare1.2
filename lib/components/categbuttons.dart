@@ -4,12 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyCategoryBtn extends StatelessWidget {
   final String btnName;
-  final String svgName;
+  //final String svgName;
+  final Icon;
   final bool btnClicked;
   const MyCategoryBtn(
       {super.key,
       required this.btnName,
-      required this.svgName,
+  //    required this.svgName,
+      this.Icon,
       required this.btnClicked});
 
   @override
@@ -24,11 +26,14 @@ class MyCategoryBtn extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              svgName,
-              colorFilter: ColorFilter.mode(
-                  (btnClicked) ? Colors.amber : Colors.white, BlendMode.color),
-            ),
+            Icon(Icons),
+          //  SvgPicture.asset(
+          //    svgName,
+          //    height : 24,
+          //    width : 24,
+          //    colorFilter: ColorFilter.mode(
+          //        (btnClicked) ? Colors.amber : Colors.white, BlendMode.color),
+          //  ),
             Text(
               btnName,
               style: GoogleFonts.poppins(

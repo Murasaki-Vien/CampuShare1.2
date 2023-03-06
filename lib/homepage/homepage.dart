@@ -147,22 +147,18 @@ class _MyhomepageState extends State<Myhomepage> {
                       children: [
                         MyCategoryBtn(
                           btnName: "Textbooks",
-                          svgName: 'assets/svg/book-alert-outline.svg',
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Electronics",
-                          svgName: 'assets/svg/electronics-logo.svg',
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Sports",
-                          svgName: 'assets/svg/sports-logo.svg',
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Music",
-                          svgName: 'assets/svg/music-logo.svg',
                           btnClicked: btnClicked,
                         ),
                       ],
