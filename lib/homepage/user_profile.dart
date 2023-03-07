@@ -75,10 +75,9 @@ class _MyUserProfileState extends State<MyUserProfile> {
                     return Text('Something went wrong!');
                   } else if (snapshot.hasData) {
                     final user = snapshot.data;
-
                     return user == null
                       ? Center(child: Text('No User'))
-                      : Center(child: Text(user!.name,
+                      : Center(child: Text(user.name,
                         overflow: TextOverflow.visible,
                         softWrap: false,
                         textAlign: TextAlign.center,
@@ -86,31 +85,13 @@ class _MyUserProfileState extends State<MyUserProfile> {
                         fontSize: 20,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,)
-                        )
+                      )
                       );
                   } else {
                     return const Center(child: CircularProgressIndicator());
                   }
                   //return CircularProgressIndicator();
                 },
-              ),
-/*
-
-              const SizedBox(height: 13),
-
-              SizedBox(
-                height: 30,
-                child: Text(
-                  user.uid,
-                  overflow: TextOverflow.visible,
-                  softWrap: false,
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
               ),
 
               SizedBox(

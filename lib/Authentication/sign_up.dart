@@ -213,8 +213,8 @@ class _SignUpState extends State<SignUp> {
       //);
 
 
-          email: userEmailController.text.trim(),
-          password: passwordController.text.trim());
+          email: userEmailController.text.trim();
+          password: passwordController.text.trim();
 
       //add user details
       addUserDetails(
