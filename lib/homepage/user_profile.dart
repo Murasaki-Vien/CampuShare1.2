@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proj3/components/list_req_about.dart';
 
+import 'package:firebase_database/firebase_database.dart';
+import 'package:proj3/components/database.dart';
+import 'package:proj3/components/users.dart' as userPrefix;
+//import 'package:provider/provider.dart';
+
+
+
 class MyUserProfile extends StatefulWidget {
   const MyUserProfile({super.key});
 
@@ -20,6 +27,10 @@ class _MyUserProfileState extends State<MyUserProfile> {
 
   @override
   Widget build(BuildContext context) {
+
+    //CollectionReference users = FirebaseFirestore.instance.collection('users').doc(user.uid);
+    //final users = FirebaseFirestore.instance.collection('users').doc(user.uid);
+    
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
@@ -53,21 +64,36 @@ class _MyUserProfileState extends State<MyUserProfile> {
                   ),
                 ],
               ),
-              const SizedBox(height: 13),
-              SizedBox(
-                height: 30,
-                child: Text(
-                  user.uid,
-                  overflow: TextOverflow.visible,
-                  softWrap: false,
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+
+
+              const SizedBox(height : 13),
+
+              FutureBuilder<userPrefix.User?>(
+                future: DatabaseService(uid: user.uid).readUser(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Something went wrong!');
+                  } else if (snapshot.hasData) {
+                    final user = snapshot.data;
+                    return user == null
+                      ? Center(child: Text('No User'))
+                      : Center(child: Text(user.name,
+                        overflow: TextOverflow.visible,
+                        softWrap: false,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,)
+                      )
+                      );
+                  } else {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  //return CircularProgressIndicator();
+                },
               ),
+
               SizedBox(
                 height: 15,
                 child: Text(
