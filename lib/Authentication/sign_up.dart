@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proj3/components/database.dart';
 import 'package:proj3/components/input_box.dart';
 import 'package:proj3/components/buttons.dart';
 import 'package:proj3/components/logo.dart';
@@ -196,14 +197,31 @@ class _SignUpState extends State<SignUp> {
 
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: userEmailController.text.trim(),
-          password: passwordController.text.trim());
+      
+        email: userEmailController.text.trim(),
+        password: passwordController.text.trim()
+      );
+      final user = FirebaseAuth.instance.currentUser!;
+
+      //add user to collection users
+      await DatabaseService(uid: user.uid).updateUserData(user.uid, userNameController.text.trim(), userEmailController.text.trim());
+
+      //add user details 
+      //addUserDetails(
+      //  userNameController.text.trim(),
+      //  userEmailController.text.trim(),
+      //);
+
+
+          email: userEmailController.text.trim();
+          password: passwordController.text.trim();
 
       //add user details
       addUserDetails(
         userNameController.text.trim(),
         userEmailController.text.trim(),
       );
+
     } on FirebaseAuthException catch (e) {
       print(e);
       if (userNameController.text == "" ||
