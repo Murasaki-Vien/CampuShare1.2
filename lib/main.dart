@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-      debugShowCheckedModeBanner: false,
-      /*theme : ThemeData(
+  Widget build(BuildContext context) => const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        /*theme : ThemeData(
         primarySwatch : Colors.purple,
       ),*/
-      home : MyLandingPage(),
-  );
+        home: MyLandingPage(),
+      );
 }
