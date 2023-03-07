@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:proj3/homepage/homepage.dart';
+
 import 'package:proj3/Authentication/verification.dart';
 import 'package:proj3/homepage/homepage_bottom_nav.dart';
-
-import '../components/buttons.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({Key? key}) : super(key: key);
@@ -29,8 +26,8 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
       sendVerificationEmail();
 
       timer = Timer.periodic(
-        Duration(seconds: 3),
-            (_) => checkEmailVerified(),
+        const Duration(seconds: 3),
+        (_) => checkEmailVerified(),
       );
     }
   }
@@ -62,9 +59,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
 
   @override
   Widget build(BuildContext context) =>
-      isEmailVerified
-          ? MyBottomNavBar()
-          : MyVerif();
+      isEmailVerified ? const MyBottomNavBar() : MyVerif();
 
   //from Charles2 - COMMIT2 - March2
 /*

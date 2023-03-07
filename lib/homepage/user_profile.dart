@@ -3,9 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proj3/components/list_req_about.dart';
-import 'package:firebase_database/firebase_database.dart';
-
-
 
 class MyUserProfile extends StatefulWidget {
   const MyUserProfile({super.key});
@@ -16,7 +13,7 @@ class MyUserProfile extends StatefulWidget {
 
 class _MyUserProfileState extends State<MyUserProfile> {
   final user = FirebaseAuth.instance.currentUser!;
-  
+
   bool listBtnClicked = false;
   bool reqBtnClicked = false;
   bool aboutBtnClicked = false;
@@ -24,7 +21,6 @@ class _MyUserProfileState extends State<MyUserProfile> {
   @override
   Widget build(BuildContext context) {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-
 
     return Scaffold(
       body: SafeArea(
@@ -34,37 +30,32 @@ class _MyUserProfileState extends State<MyUserProfile> {
             children: [
               Stack(
                 children: <Widget>[
-                  
-        
                   Container(
-                    height : 148.77,
-                    decoration :  const BoxDecoration(
-                      color:  Color(0xff6C63FF),
-                      borderRadius : BorderRadius.only(
-                        bottomLeft : Radius.circular(48),
-                        bottomRight : Radius.circular(48), 
-                      )
-                    ),
+                    height: 148.77,
+                    decoration: const BoxDecoration(
+                        color: Color(0xff6C63FF),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(48),
+                          bottomRight: Radius.circular(48),
+                        )),
                   ),
 
                   /*profile picture*/
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0,79,0,0),
+                    padding: const EdgeInsets.fromLTRB(0, 79, 0, 0),
                     child: Center(
                       child: Image.asset(
-                        'lib/svg/profilepic.png',
+                        'assets/svg/profilepic.png',
                         height: 142,
                         width: 142,
                       ),
                     ),
                   ),
-
                 ],
               ),
-
-              const SizedBox(height : 13),
+              const SizedBox(height: 13),
               SizedBox(
-                height : 30,
+                height: 30,
                 child: Text(
                   user.uid,
                   overflow: TextOverflow.visible,
@@ -77,10 +68,8 @@ class _MyUserProfileState extends State<MyUserProfile> {
                   ),
                 ),
               ),
-
-
               SizedBox(
-                height : 15,
+                height: 15,
                 child: Text(
                   user.email!,
                   style: GoogleFonts.poppins(
@@ -90,29 +79,24 @@ class _MyUserProfileState extends State<MyUserProfile> {
                   ),
                 ),
               ),
-                    
-              const SizedBox(height : 6),
-
+              const SizedBox(height: 6),
               Padding(
-                padding : const EdgeInsets.only(right : 32, left : 32), 
-
-                child : Row(
-                  mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                padding: const EdgeInsets.only(right: 32, left: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Center(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children:  [
+                        children: [
                           Text(
                             "Listings",
                             style: GoogleFonts.poppins(
                               fontSize: 10,
-                              color:  const Color(0xFF9E9E9E),
+                              color: const Color(0xFF9E9E9E),
                             ),
                           ),
-
-                          const SizedBox(height : 6),
-                          
+                          const SizedBox(height: 6),
                           Text(
                             "10",
                             style: GoogleFonts.poppins(
@@ -126,22 +110,20 @@ class _MyUserProfileState extends State<MyUserProfile> {
                     Center(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children:  [
+                        children: [
                           Text(
                             "Request",
                             style: GoogleFonts.poppins(
                               fontSize: 10,
-                              color:  const Color(0xFF9E9E9E),
+                              color: const Color(0xFF9E9E9E),
                             ),
                           ),
-
-                          const SizedBox(height : 6),
-
+                          const SizedBox(height: 6),
                           Text(
                             "10",
                             style: GoogleFonts.poppins(
                               fontSize: 10,
-                              color:  const Color(0xFF9E9E9E),
+                              color: const Color(0xFF9E9E9E),
                             ),
                           ),
                         ],
@@ -150,22 +132,20 @@ class _MyUserProfileState extends State<MyUserProfile> {
                     Center(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children:  [
+                        children: [
                           Text(
                             "Ratings",
                             style: GoogleFonts.poppins(
                               fontSize: 10,
-                              color:  const Color(0xFF9E9E9E),
+                              color: const Color(0xFF9E9E9E),
                             ),
                           ),
-
-                          const SizedBox(height : 6),
-
+                          const SizedBox(height: 6),
                           Text(
                             "4.8",
                             style: GoogleFonts.poppins(
                               fontSize: 10,
-                              color:  const Color(0xFF9E9E9E),
+                              color: const Color(0xFF9E9E9E),
                             ),
                           ),
                         ],
@@ -173,27 +153,22 @@ class _MyUserProfileState extends State<MyUserProfile> {
                     ),
                   ],
                 ),
-              
               ),
-
-
               const Padding(
                 padding: EdgeInsets.all(0),
-                child:  Divider(
+                child: Divider(
                   thickness: 1.5,
                   color: Color(0xFF9E9E9E),
                 ),
               ),
-              const SizedBox(height : 6),
-
+              const SizedBox(height: 6),
               Padding(
-                padding: const EdgeInsets.only(right : 30, left : 30),
+                padding: const EdgeInsets.only(right: 30, left: 30),
                 child: Row(
-                  mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     GestureDetector(
-                      onTap :() {
+                      onTap: () {
                         setState(() {
                           listBtnClicked = true;
                           reqBtnClicked = false;
@@ -203,27 +178,24 @@ class _MyUserProfileState extends State<MyUserProfile> {
                       },
                       child: MyListReqAboutoptn(
                         lRAName: "Listings",
-                        listReqAboutisClicked : listBtnClicked,
+                        listReqAboutisClicked: listBtnClicked,
                       ),
                     ),
-
                     GestureDetector(
-                      onTap :() {
-                        setState((){
-                          aboutBtnClicked = false;
-                          listBtnClicked = false;
-                          reqBtnClicked = !reqBtnClicked;
-                        });
-                        print("REQ clicked");
-                      },
-                      child: MyListReqAboutoptn(
-                        lRAName: "Requests", 
-                        listReqAboutisClicked : reqBtnClicked,
-                      )
-                    ),
-
+                        onTap: () {
+                          setState(() {
+                            aboutBtnClicked = false;
+                            listBtnClicked = false;
+                            reqBtnClicked = !reqBtnClicked;
+                          });
+                          print("REQ clicked");
+                        },
+                        child: MyListReqAboutoptn(
+                          lRAName: "Requests",
+                          listReqAboutisClicked: reqBtnClicked,
+                        )),
                     GestureDetector(
-                      onTap :() {
+                      onTap: () {
                         setState(() {
                           listBtnClicked = false;
                           reqBtnClicked = false;
@@ -233,33 +205,28 @@ class _MyUserProfileState extends State<MyUserProfile> {
                       },
                       child: MyListReqAboutoptn(
                         lRAName: "About",
-                        listReqAboutisClicked : aboutBtnClicked,
+                        listReqAboutisClicked: aboutBtnClicked,
                       ),
                     ),
                   ],
                 ),
               ),
-
-              const SizedBox(height : 160),
-              Text(
-                'No lend listing made.',
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  height: 0.5,
-                  color: Colors.black,
-                )
-              ),
-        
+              const SizedBox(height: 160),
+              Text('No lend listing made.',
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 15,
+                    height: 0.5,
+                    color: Colors.black,
+                  )),
               Text('Create now!',
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  color: const Color(0xff6C63FF),
-                )
-              ),
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 15,
+                    color: const Color(0xff6C63FF),
+                  )),
             ],
           ),
         ),
