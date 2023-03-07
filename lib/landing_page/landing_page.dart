@@ -90,7 +90,7 @@ class MyLandingPage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  const Myhomepage()//const Wrapper(),
+                      builder: (context) =>  const Wrapper(), //const Myhomepage()
                     ));
                   },
                   child: Container(

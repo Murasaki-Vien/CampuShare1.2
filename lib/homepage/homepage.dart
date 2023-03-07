@@ -147,18 +147,34 @@ class _MyhomepageState extends State<Myhomepage> {
                       children: [
                         MyCategoryBtn(
                           btnName: "Textbooks",
+                          svgName : const Icon(
+                            Icons.book_sharp,
+                            color : Colors.white,
+                          ),
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Electronics",
+                          svgName : const Icon(
+                            Icons.computer_sharp,
+                            color : Colors.white,
+                          ),
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Sports",
+                          svgName : const Icon(
+                            Icons.sports_basketball_sharp,
+                            color : Colors.white,
+                          ),
                           btnClicked: btnClicked,
                         ),
                         MyCategoryBtn(
                           btnName: "Music",
+                          svgName : const Icon(
+                            Icons.music_note_rounded,
+                            color : Colors.white,
+                          ),
                           btnClicked: btnClicked,
                         ),
                       ],
