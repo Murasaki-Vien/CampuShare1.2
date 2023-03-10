@@ -35,8 +35,8 @@ class _MyUserProfileState extends State<MyUserProfile> {
 
     return Scaffold(
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Center(
+        child: SingleChildScrollView(
+          child: Center(
           child: Column(
             children: [
               Stack(
