@@ -13,6 +13,8 @@ import 'package:proj3/sidebar/data_privacy.dart';
 import 'package:proj3/sidebar/terms_and_condition.dart';
 import 'package:proj3/sidebar/contact_us.dart';
 
+import 'homepage_bottom_nav.dart';
+
 class Myhomepage extends StatefulWidget {
   const Myhomepage({
     super.key,
@@ -22,6 +24,8 @@ class Myhomepage extends StatefulWidget {
   State<Myhomepage> createState() => _MyhomepageState();
 }
 
+
+
 class _MyhomepageState extends State<Myhomepage> {
   final searchController = TextEditingController();
   String textName = '';
@@ -29,9 +33,109 @@ class _MyhomepageState extends State<Myhomepage> {
   bool lendisClicked = false;
   bool borrowisClicked = false;
 
+ 
   @override
   Widget build(BuildContext context) {
+
+    
     return Scaffold(
+    
+      floatingActionButton: FloatingActionButton(
+        backgroundColor:  const Color(0xff6C63FF),
+        tooltip: 'Add',
+        child: const Icon(Icons.add),
+        onPressed: (){
+          showDialog(
+          context: context,
+          builder: (_) => Dialog(
+              shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: SizedBox(
+                    height: 200.0,
+                    width: 350.0,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                Navigator.of(context, rootNavigator: true).pop(context);
+                              
+                              },
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'What do you want to do?',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        const SizedBox(height: 10.0),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            primary: const Color(0xff6C63FF),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 39, vertical: 5),
+                          ),
+                          onPressed: () {
+                            // Handle first menu option
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const MyHomePage(
+                                  title: 'Create Lend Listing'),
+                            )
+                            );
+                          },
+                          child: Text(
+                            'Create Lend Listing',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16.5,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            primary: const Color(0xff6C63FF),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 5),
+                          ),
+                          onPressed: () {
+                            // Handle second menu option
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>const MyHomePage(
+                                  title: 'Create Borrow Request'),
+                            ));
+                          },
+                          child: Text(
+                            'Create Borrow Request',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16.5,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                )
+          )
+          );
+        }     
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       extendBody: true,
       resizeToAvoidBottomInset: false,
 
@@ -254,6 +358,31 @@ class _MyhomepageState extends State<Myhomepage> {
         top: MediaQuery.of(context).padding.top,
       ));
 }
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: const BackButton(
+          color: Colors.black,
+        ),
+        centerTitle: false,
+        title: Text(title, style: TextStyle(color: Colors.black)),
+        actions: <Widget>[],
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      ),
+      body: const Center(
+        child: Text('We are still working on this page! Love you'),
+      ),
+    );
+  }
+}
+
 
 Widget buildMenuItems(BuildContext context) => Container(
       padding: const EdgeInsets.all(24),
