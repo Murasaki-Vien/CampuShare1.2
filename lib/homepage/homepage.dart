@@ -64,7 +64,6 @@ class _MyhomepageState extends State<Myhomepage> {
                               icon: const Icon(Icons.close),
                               onPressed: () {
                                 Navigator.of(context, rootNavigator: true).pop(context);
-                              
                               },
                             ),
                           ],
@@ -117,7 +116,9 @@ class _MyhomepageState extends State<Myhomepage> {
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) =>const MyHomePage(
                                   title: 'Create Borrow Request'),
-                            ));
+                              )
+                            );
+                            Navigator.of(context, rootNavigator: true).pop(context);
                           },
                           child: Text(
                             'Create Borrow Request',
@@ -202,13 +203,15 @@ class _MyhomepageState extends State<Myhomepage> {
                             onTap: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => const MySearchPage(),
+                                  builder: (context) => MySearchPage(),
                                 ),
                               );
                             },
                             child: MysearchBar(
                               controller: searchController,
                               hinttext: "Search for Everything",
+                              fillColor : Colors.white,
+                              enabled : false,
                               icon: const Icon(
                                 Icons.search,
                                 color: Color(0xffA5A3A3),
@@ -217,6 +220,7 @@ class _MyhomepageState extends State<Myhomepage> {
                           ),
                         ),
                       ),
+
                       Positioned(
                         top: 10,
                         left: 5,
@@ -444,3 +448,4 @@ Widget buildMenuItems(BuildContext context) => Container(
         ],
       ),
     );
+
